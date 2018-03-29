@@ -9,6 +9,18 @@ namespace SHARPEOPLE_LIB
     public interface IPeople  
     {  
         [OperationContract]  
-        List<People> GetPeople(); 
-    }  
+        List<People> GetPeople();
+	    
+	    [OperationContract]  
+	    People GetPeople(int id); 
+	    
+	    [OperationContract]  
+	    void DelPeople(int id);
+	    
+	    [OperationContract]  
+	    void AddPeople(string name, float height, float weight);
+	    
+	    [OperationContract]  
+	    List<People> SetPeople(int id, string name, float height, float weight);
+    }
 }  
