@@ -21,6 +21,6 @@ namespace SHARPEOPLE_LIB
 	    void AddPeople(string name, float height, float weight);
 	    
 	    [OperationContract]  
-	    List<People> SetPeople(int id, string name, float height, float weight);
+	    void SetPeople(int id, string name, float height, float weight);
     }
 }  
