@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHARPEOPLE_LIB", "SHARPEOPLE_LIB\SHARPEOPLE_LIB.csproj", "{192C5B05-A8A1-49B4-BE75-CC92B7A95701}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHARPEOPLE_HOST", "SHARPEOPLE_HOST\SHARPEOPLE_HOST.csproj", "{035AF819-AF7C-4B6A-B05B-999CEEC09128}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{192C5B05-A8A1-49B4-BE75-CC92B7A95701}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{192C5B05-A8A1-49B4-BE75-CC92B7A95701}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{192C5B05-A8A1-49B4-BE75-CC92B7A95701}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{192C5B05-A8A1-49B4-BE75-CC92B7A95701}.Release|Any CPU.Build.0 = Release|Any CPU
+		{035AF819-AF7C-4B6A-B05B-999CEEC09128}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{035AF819-AF7C-4B6A-B05B-999CEEC09128}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{035AF819-AF7C-4B6A-B05B-999CEEC09128}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{035AF819-AF7C-4B6A-B05B-999CEEC09128}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
