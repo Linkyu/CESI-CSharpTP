@@ -1,40 +1,49 @@
 ﻿//Service.cs  
+
 using System;
 using System.Collections.Generic;
+using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace SHARPEOPLE_LIB
-{  
-    public class PeopleService : IPeople  
+{
+    public class PeopleService : IPeople
     {
         public List<People> GetPeople()
         {
             try
             {
-                using (var sqlConnexion = new MySqlConnection("Server=localhost; database=hoomans; UID=root; SslMode=none"))
+                using (var sqlConnexion =
+                    new MySqlConnection("Server=localhost; database=hoomans; UID=root; SslMode=none"))
                 {
                     var sqlCommand = new MySqlCommand("Select * From people", sqlConnexion);
-                    
+
                     sqlConnexion.Open();
                     var sqlReader = sqlCommand.ExecuteReader();
-                    
-                    var result = new List<People>();
-                    
-                    while (sqlReader.Read())
-                    {
-                        int.TryParse(sqlReader["id"].ToString(), out var idInt);
-                        float.TryParse(sqlReader["height"].ToString(), out var heightFloat);
-                        float.TryParse(sqlReader["weight"].ToString(), out var weightFloat);
-                        result.Add(new People(idInt, sqlReader["name"].ToString(), heightFloat, weightFloat));
-                    }
 
-                    return result;
+                    return FormatResult(sqlReader);
                 }
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
             }
+        }
+
+        private static List<People> FormatResult(IDataReader sqlReader)
+        {
+            var result = new List<People>();
+
+            while (sqlReader.Read())
+            {
+                int.TryParse(sqlReader["id"].ToString(), out var idInt);
+                float.TryParse(sqlReader["height"].ToString(), out var heightFloat);
+                float.TryParse(sqlReader["weight"].ToString(), out var weightFloat);
+
+                result.Add(new People(idInt, sqlReader["name"].ToString(), heightFloat, weightFloat));
+            }
+
+            return result;
         }
     }
 
@@ -53,4 +62,4 @@ namespace SHARPEOPLE_LIB
         public float Height;
         public float Weight;
     }
-}  
+}
