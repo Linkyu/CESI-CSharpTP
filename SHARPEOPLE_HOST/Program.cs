@@ -26,14 +26,19 @@ namespace SHARPEOPLE_HOST
                 selfHost.Description.Behaviors.Add(smb);  
 
                 // Step 5 Start the service.  
-                selfHost.Open();  
+                selfHost.Open();
+
+                var calculator = new CalculatorService();
+                calculator.GetPeople();
+                
                 Console.WriteLine("The service is ready.");  
                 Console.WriteLine("Press <ENTER> to terminate service.");  
-                Console.WriteLine();  
-                Console.ReadLine();  
+                Console.WriteLine(); 
+                //Console.ReadLine();  
 
                 // Close the ServiceHostBase to shutdown the service.  
                 selfHost.Close();  
+                Console.WriteLine("BYE!");  
             }  
             catch (CommunicationException ce)  
             {  
