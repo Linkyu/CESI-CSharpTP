@@ -1,5 +1,6 @@
 ﻿//Service.cs  
 
+using System;
 using System.Collections.Generic;
 using System.Data;
 using MySql.Data.MySqlClient;
@@ -59,11 +60,12 @@ namespace SHARPEOPLE_LIB
 
             while (sqlReader.Read())
             {
-                int.TryParse(sqlReader["id"].ToString(), out var idInt);
-                float.TryParse(sqlReader["height"].ToString(), out var heightFloat);
-                float.TryParse(sqlReader["weight"].ToString(), out var weightFloat);
-
-                result.Add(new People(idInt, sqlReader["name"].ToString(), heightFloat, weightFloat));
+                result.Add(new People(
+                    Convert.ToInt32(sqlReader["id"].ToString()), 
+                    sqlReader["name"].ToString(), 
+                    Convert.ToSingle(sqlReader["height"].ToString()), 
+                    Convert.ToSingle(sqlReader["weight"].ToString())
+                    ));
             }
 
             return result;
