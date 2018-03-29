@@ -28,13 +28,11 @@ namespace SHARPEOPLE_HOST
                 // Step 5 Start the service.  
                 selfHost.Open();
 
-                var calculator = new PeopleService();
-                calculator.GetPeople();
                 
                 Console.WriteLine("The service is ready.");  
                 Console.WriteLine("Press <ENTER> to terminate service.");  
                 Console.WriteLine(); 
-                //Console.ReadLine();  
+                Console.ReadLine();  
 
                 // Close the ServiceHostBase to shutdown the service.  
                 selfHost.Close();  

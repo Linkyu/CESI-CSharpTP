@@ -18,8 +18,8 @@ namespace SHARPEOPLE_HOST
 
         private void PeopleTable_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
+	        
 	        var serv = new PeopleService();
-	        serv.GetPeople();
             switch (e.CommandName)
             {
                 case "update":
@@ -36,20 +36,16 @@ namespace SHARPEOPLE_HOST
                     break;
             }
             
-           
             //Refresh data
-            List<People> tab = new List<People>();
-            tab = serv.GetPeople();
-
-            PeopleTable.DataSource = tab;
+	        PeopleTable.DataSource = serv.GetPeoples();
             PeopleTable.DataBind();
            
         }
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void PageLoad(object sender, EventArgs e)
         {
             var serv = new PeopleService();
-	        var people = serv.GetPeople();
+	        var people = serv.GetPeoples();
             PeopleTable.DataSource = people;
             PeopleTable.DataBind();
         }
@@ -61,7 +57,7 @@ namespace SHARPEOPLE_HOST
 
             if (string.IsNullOrEmpty(IdBox.Text))
             {
-                serv.InsPeople(NameBox.Text, Convert.ToInt32(WeightBox.Text), Convert.ToInt32(HeightBox.Text));
+                serv.AddPeople(NameBox.Text, Convert.ToInt32(WeightBox.Text), Convert.ToInt32(HeightBox.Text));
             }
             else
             {
@@ -74,10 +70,7 @@ namespace SHARPEOPLE_HOST
             IdBox.Text = string.Empty;
 
             //Refresh data
-            List<People> tab = new List<People>();
-            tab = serv.GetPeoples().ToList<People>();
-
-            PeopleTable.DataSource = tab;
+            PeopleTable.DataSource = serv.GetPeoples();
             PeopleTable.DataBind();
         }
     }

@@ -9,7 +9,7 @@ namespace SHARPEOPLE_LIB
     public interface IPeople  
     {  
         [OperationContract]  
-        List<People> GetPeople();
+        List<People> GetPeoples();
 	    
 	    [OperationContract]  
 	    People GetPeople(int id); 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="IndexPeople.aspx.cs" Inherits="PeopleByET.View.IndexPeople" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="IndexPeople.aspx.cs" Inherits="SHARPEOPLE_HOST.IndexPeople" %>
 
 <!DOCTYPE html>
 
@@ -21,22 +21,22 @@
                 </HeaderTemplate>
                 <ItemTemplate>
                 <tr>
-                    <td bgcolor="#CCFFCC">
+                    <td bgcolor="008CD8">
                     <asp:Label runat="server" ID="Label1" 
                         text='<%# DataBinder.Eval(Container.DataItem,"Id") %>' />
                     </td>
 
-                    <td bgcolor="#CCFFCC">
+                    <td bgcolor="#008CD8">
                         <asp:Label runat="server" ID="Label2" 
                             text='<%# DataBinder.Eval(Container.DataItem,"Name") %>' />
                     </td>
 
-                    <td bgcolor="#CCFFCC">
+                    <td bgcolor="#008CD8">
                         <asp:Label runat="server" ID="Label3" 
                             text='<%#  DataBinder.Eval(Container.DataItem,"Height") %>' />
                     </td>
 
-                    <td bgcolor="#CCFFCC">
+                    <td bgcolor="#008CD8">
                         <asp:Label runat="server" ID="Label4" 
                             text='<%#  DataBinder.Eval(Container.DataItem,"Weight") %>' />
                     </td>

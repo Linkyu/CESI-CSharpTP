@@ -16,7 +16,7 @@ namespace SHARPEOPLE_LIB
             _connexionString = "Server=localhost; database=hoomans; UID=root; SslMode=none";
         }
 
-        public List<People> GetPeople()
+        public List<People> GetPeoples()
         {
             return GetFormattedResult("Select * From people");
         }
