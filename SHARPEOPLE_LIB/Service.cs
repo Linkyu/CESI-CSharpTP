@@ -39,5 +39,21 @@ namespace SHARPEOPLE_LIB
                 throw new Exception(ex.ToString());
             }
         }
-    }  
+    }
+
+    public class People
+    {
+        public People(int id, int name, int height, int weight)
+        {
+            Id = id;
+            Name = name;
+            Height = height;
+            Weight = weight;
+        }
+
+        public int Id;
+        public int Name;
+        public int Height;
+        public int Weight;
+    }
 }  
