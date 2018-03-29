@@ -18,7 +18,7 @@ namespace SHARPEOPLE_HOST
             try  
             {  
                 // Step 3 Add a service endpoint.  
-                selfHost.AddServiceEndpoint(typeof(ICalculator), new WSHttpBinding(), "CalculatorService");  
+                selfHost.AddServiceEndpoint(typeof(IPeople), new WSHttpBinding(), "CalculatorService");  
 
                 // Step 4 Enable metadata exchange.  
                 var smb = new ServiceMetadataBehavior {HttpGetEnabled = true};

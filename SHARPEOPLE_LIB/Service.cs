@@ -5,7 +5,7 @@ using MySql.Data.MySqlClient;
 
 namespace SHARPEOPLE_LIB
 {  
-    public class PeopleService : ICalculator  
+    public class PeopleService : IPeople  
     {
         public List<People> GetPeople()
         {
