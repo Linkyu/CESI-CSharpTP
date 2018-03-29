@@ -13,7 +13,7 @@ namespace SHARPEOPLE_HOST
             var baseAddress = new Uri("http://localhost:8000/SHARPEOPLE/");  
 
             // Step 2 Create a ServiceHost instance  
-            var selfHost = new ServiceHost(typeof(CalculatorService), baseAddress);  
+            var selfHost = new ServiceHost(typeof(PeopleService), baseAddress);  
 
             try  
             {  
@@ -28,7 +28,7 @@ namespace SHARPEOPLE_HOST
                 // Step 5 Start the service.  
                 selfHost.Open();
 
-                var calculator = new CalculatorService();
+                var calculator = new PeopleService();
                 calculator.GetPeople();
                 
                 Console.WriteLine("The service is ready.");  
