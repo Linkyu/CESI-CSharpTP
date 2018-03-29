@@ -9,6 +9,6 @@ namespace SHARPEOPLE_LIB
     public interface ICalculator  
     {  
         [OperationContract]  
-        List<Dictionary<string, string>> GetPeople(); 
+        List<People> GetPeople(); 
     }  
 }  

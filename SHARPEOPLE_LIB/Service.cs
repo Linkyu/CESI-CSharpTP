@@ -7,7 +7,7 @@ namespace SHARPEOPLE_LIB
 {  
     public class PeopleService : ICalculator  
     {
-        public List<Dictionary<string, string>> GetPeople()
+        public List<People> GetPeople()
         {
             try
             {
@@ -18,17 +18,14 @@ namespace SHARPEOPLE_LIB
                     sqlConnexion.Open();
                     var sqlReader = sqlCommand.ExecuteReader();
                     
-                    var result = new List<Dictionary<string, string>>();
+                    var result = new List<People>();
                     
                     while (sqlReader.Read())
                     {
-                        result.Add(new Dictionary<string, string>
-                        {
-                            {"id", sqlReader["id"].ToString()},
-                            {"name", sqlReader["name"].ToString()},
-                            {"height", sqlReader["height"].ToString()},
-                            {"weight", sqlReader["weight"].ToString()},
-                        });
+                        int.TryParse(sqlReader["id"].ToString(), out var idInt);
+                        float.TryParse(sqlReader["height"].ToString(), out var heightFloat);
+                        float.TryParse(sqlReader["weight"].ToString(), out var weightFloat);
+                        result.Add(new People(idInt, sqlReader["name"].ToString(), heightFloat, weightFloat));
                     }
 
                     return result;
@@ -43,7 +40,7 @@ namespace SHARPEOPLE_LIB
 
     public class People
     {
-        public People(int id, int name, int height, int weight)
+        public People(int id, string name, float height, float weight)
         {
             Id = id;
             Name = name;
@@ -52,8 +49,8 @@ namespace SHARPEOPLE_LIB
         }
 
         public int Id;
-        public int Name;
-        public int Height;
-        public int Weight;
+        public string Name;
+        public float Height;
+        public float Weight;
     }
 }  
